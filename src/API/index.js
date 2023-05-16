@@ -9,8 +9,8 @@ export const sendEmail = async (
     try {
         const data = { email: email, subject: subject, body: body };
         console.log(data)
-        let res = await axios.post(`http://localhost:5000/send`, data)
+        let res = await axios.post(`https://portfolio-api-xype.onrender.com/send`, data)
     } catch (e) {
-        alert(e)
+        alert(`${e} ${res}` )
     }
 }
