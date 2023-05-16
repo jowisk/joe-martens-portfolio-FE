@@ -5,7 +5,6 @@ export const sendEmail = async (
     subject,
     body
 ) => {
-    console.log("here!!")
     try {
         const data = { email: email, subject: subject, body: body };
         console.log(data)
