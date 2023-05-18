@@ -2,7 +2,7 @@ import React from 'react'
 import Project from '../../molecules/ProjectList/Project'
 const ProjectList = ({ projects }) => {
     return (
-        <div className="px-[16px] md:px-[165px] pb-[140px] flex flex-col justify-center">
+        <article className="px-[16px] md:px-[165px] pb-[140px] flex flex-col justify-center">
             <div className="flex flex-row justify-between">
                 <p className="text-[40px] leading-[40px] tracking-[-1.14px] lg:tracking-[-2.5px] lg:text-[88px] font-[700] lg:leading-[88px]">Projects</p>
                 {/* Desktop */}
@@ -23,7 +23,7 @@ const ProjectList = ({ projects }) => {
                     />
                 ))}
             </div>
-        </div>
+        </article>
     )
 }
 

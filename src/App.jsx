@@ -56,7 +56,7 @@ function App() {
     },
     {
       name: "Accessibility",
-      time: "4"
+      time: "2"
     },
     {
       name: "Tailwind",
@@ -83,15 +83,14 @@ function App() {
 
   return (
     <>
-      <div className="bg-[#151515] w-full h-full text-white relative">
+      <Header
+        name="jowisk"
+        socials={socials}
+      />
 
+      <CurvesNav />
 
-        <Header
-          name="jowisk"
-          socials={socials}
-        />
-
-        <CurvesNav />
+      <main>
 
         <Summary
           socials={socials}
@@ -113,15 +112,14 @@ function App() {
         <CurvesContact />
 
         <Contact />
+      </main>
 
-        <CurvesFooter />
+      <CurvesFooter />
 
-        <Footer
-          name="jowisk"
-          socials={socials}
-        />
-
-      </div>
+      <Footer
+        name="jowisk"
+        socials={socials}
+      />
     </>
 
   )

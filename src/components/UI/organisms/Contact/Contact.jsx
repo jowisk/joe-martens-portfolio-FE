@@ -1,8 +1,6 @@
 import { React, useState } from 'react'
-// import sendEmail from '../../../../firebase/sendEmail'
 import { sendEmail } from '../../../../API/index'
 import ResponseRecorded from './ResponseRecorded'
-import CurvesFooter from '../design/CurvesFooter'
 const Contact = () => {
 
     const [email, setEmail] = useState('')
@@ -43,9 +41,7 @@ const Contact = () => {
 
     return (
         formVisibility ?
-            <div className="bg-[#242424] px-[16px] md:px-[165px] flex flex-col lg:flex-row pt-[60px] lg:pt-[84px] justify-between border-b-[1px] lg:border-none border-white pb-[70px] lg:[px-0] min-h-[521px]" id="contact">
-
-
+            <article className="bg-[#242424] px-[16px] md:px-[165px] flex flex-col lg:flex-row pt-[60px] lg:pt-[84px] justify-between border-b-[1px] lg:border-none border-white pb-[70px] lg:[px-0] min-h-[521px]" id="contact">
                 <div>
                     <p className="text-[40px] leading-[40px] text-center tracking-[-1.14px] lg:text-start lg:text-[88px] font-[700] lg:tracking-[-2.5px] lg:leading-[88px]">Contact</p>
                     <p className="text-center mt-[20px] lg:text-start leading-[26px] lg:w-[445px] lg:mt-[36px] lg:text-[18px] lg:leading-[28px] text-[#D9D9D9]">I would love to hear about your project and how I could help. Please fill in the form, and I'll get back to you as soon as possible.</p>
@@ -68,7 +64,7 @@ const Contact = () => {
                         <button disabled={!isValidEmail} className="leading-[26px] tracking-[2.29px] font-[700] mt-[32px] hover:text-red-500 transition duration-300 hover:ease-in shake" type="submit">SEND MESSAGE</button>}
                 </form>
 
-            </div> :
+            </article> :
             <ResponseRecorded />
 
     )
