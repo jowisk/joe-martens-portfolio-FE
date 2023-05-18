@@ -27,7 +27,7 @@ const Project = ({ name, technologies, src, deploy, git }) => {
                 ))}
             </div>
             <div className="flex lg:hidden uppercase text-[16px] leading-[26px] tracking-[2.29px] font-[700] my-[10px]">
-                <a href={deploy}><p className="underline decoration-[#4EE1A0] underline-offset-[15px]">view project</p></a>
+                {isDeployed ? <a href={deploy}><p className="hover-underline-animation hover:text-[#4EE1A0] transition duration-300 hover:ease-in">view project</p></a> : <p className="text-[16px]">Not deployed yet :(</p>}
                 <a href={git} className="ml-[32px]"><p className="underline decoration-[#4EE1A0] underline-offset-[15px]">view code</p></a>
             </div>
 
