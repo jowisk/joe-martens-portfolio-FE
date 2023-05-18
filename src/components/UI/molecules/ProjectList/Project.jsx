@@ -12,7 +12,7 @@ const Project = ({ name, technologies, src }) => {
 
     return (
         <div className="mt-[40px] lg:mt-0 flex flex-col w-full h-[398px] lg:w-[540px] lg:h-[487px]">
-            <img onMouseEnter={handleVisibility} className="w-full h-full h-[400px]lg:w-[540px]" src="" alt="" srcSet={src} />
+            <img onMouseEnter={handleVisibility} className="w-full h-full h-[400px]lg:w-[540px]" src={src} alt="" srcSet="" />
             <p className="uppercase mt-[20px] font-[700] text-[24px] leading-[32px]">{name}</p>
             <div className="flex mt-[7px] text-[#D9D9D9] w-full">
                 {technologies.map((tech, index) => (

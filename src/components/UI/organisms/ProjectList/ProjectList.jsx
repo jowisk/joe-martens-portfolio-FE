@@ -6,9 +6,9 @@ const ProjectList = ({ projects }) => {
             <div className="flex flex-row justify-between">
                 <p className="text-[40px] leading-[40px] tracking-[-1.14px] lg:tracking-[-2.5px] lg:text-[88px] font-[700] lg:leading-[88px]">Projects</p>
                 {/* Desktop */}
-                <a className="hidden lg:block h-[2rem] uppercase leading-[26px] font-[700] tracking-[2.29px] hover-underline-animation hover:text-[#4EE1A0] transition duration-300 hover:ease-in" href="">contact me</a>
+                <a className="hidden lg:block h-[2rem] uppercase leading-[26px] font-[700] tracking-[2.29px] hover-underline-animation hover:text-[#4EE1A0] transition duration-300 hover:ease-in" href="#contact">contact me</a>
                 {/* Mobile */}
-                <a className="flex items-center lg:hidden uppercase leading-[26px] font-[700] tracking-[2.29px] !decoration-[#4EE1A0] underline-offset-[0.5rem] underline " href="">contact me</a>
+                <a className="flex items-center lg:hidden uppercase leading-[26px] font-[700] tracking-[2.29px] !decoration-[#4EE1A0] underline-offset-[0.5rem] underline " href="#contact">contact me</a>
             </div>
 
             <div className="mt-[40px] lg:mt-[80px] flex flex-row flex-wrap justify-between">
