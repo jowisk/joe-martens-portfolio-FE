@@ -77,7 +77,7 @@ function App() {
       technologies: ["React", "Tailwind", "HTML", "Node.JS"],
       src: pokedexSS,
       deploy: "",
-      git: "",
+      git: "https://github.com/jowisk/pokedex-frontend-grupo1",
     },
   ]
 
