@@ -18,6 +18,8 @@ const ProjectList = ({ projects }) => {
                         name={project.name}
                         technologies={project.technologies}
                         src={project.src}
+                        deploy={project.deploy}
+                        git={project.git}
                     />
                 ))}
             </div>

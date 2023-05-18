@@ -68,16 +68,19 @@ function App() {
     {
       name: "results summary",
       technologies: ["React", "Tailwind", "HTML"],
-      src: resultsSummarySS
+      src: resultsSummarySS,
+      deploy: "https://results-summary-component-8uxr.onrender.com/",
+      git: "https://github.com/jowisk/results-summary-component",
     },
     {
       name: "Pokedex",
       technologies: ["React", "Tailwind", "HTML", "Node.JS"],
-      src: pokedexSS
+      src: pokedexSS,
+      deploy: "",
+      git: "",
     },
   ]
 
-  console.log("projects", projects)
   return (
     <>
       <div className="bg-[#151515] w-full h-full text-white relative">

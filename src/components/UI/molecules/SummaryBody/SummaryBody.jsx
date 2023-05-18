@@ -14,7 +14,7 @@ const SummaryBody = ({ jowi }) => {
                 <p className="relative mx-auto lg:mx-0 flex text-center mt-[40px] text-[16px] leading-[26px] w-[343px] lg:mt-[43px] lg:w-[445px] font-[500] lg:text-[18px] tracking-[0px] lg:text-start lg:leading-[28px] lg:m-">Full stack developer from Montevideo with a strong passion for elegant web apps and a keen eye to catch the attention of the most perfectionist.</p>
 
                 {/* Desktop */}
-                <a href="#contact"><p className="hidden lg:inline-block font-[700] text-[40px] tracking-[10px] hover-underline-animation uppercase mt-[56px] lg:hover:text-[#4EE1A0] transition duration-300 hover:ease-in">contact me</p></a>
+                <a href="#contact"><p className="hidden lg:inline-block font-[700] text-[40px] tracking-[10px]  uppercase mt-[56px] hover-underline-animation hover:text-[#4EE1A0] transition duration-300 hover:ease-in">contact me</p></a>
                 {/* Mobile */}
                 <a href="#contact"><p className="mt-[40px] tracking-[2.29px] leading-[26px] font-[700] lg:hidden w-full text-center uppercase lg:hover:text-[#4EE1A0] transition duration-300 lg:hover:ease-in !decoration-[#4EE1A0] underline-offset-[1rem] underline">contact me</p></a>
 
