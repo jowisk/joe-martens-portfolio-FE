@@ -2,7 +2,7 @@ import { React, useState } from 'react'
 // import sendEmail from '../../../../firebase/sendEmail'
 import { sendEmail } from '../../../../API/index'
 import ResponseRecorded from './ResponseRecorded'
-import CurvesFooter from '../design/Curves'
+import CurvesFooter from '../design/CurvesFooter'
 const Contact = () => {
 
     const [email, setEmail] = useState('')
@@ -43,7 +43,7 @@ const Contact = () => {
 
     return (
         formVisibility ?
-            <div className="flex flex-col lg:flex-row pt-[60px] lg:pt-[84px] justify-between border-b-[1px] lg:border-none border-white pb-[70px] lg:[px-0] min-h-[521px]" id="contact">
+            <div className="bg-[#242424] px-[16px] md:px-[165px] flex flex-col lg:flex-row pt-[60px] lg:pt-[84px] justify-between border-b-[1px] lg:border-none border-white pb-[70px] lg:[px-0] min-h-[521px]" id="contact">
 
 
                 <div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import IconsList from './IconsList'
 
-const NavBar = ({ name, socials }) => {
+const Header = ({ name, socials }) => {
 
     return (
         <div className="absolute px-[165px] bg-gradient-to-b from-white h-[150px] left-0 top-0 from-0% to-[#4EE1A0] pt-[20px] lg:pt-[39px] flex flex-col lg:flex-row w-full items-center justify-between z-[5]">
@@ -21,4 +21,4 @@ const NavBar = ({ name, socials }) => {
     )
 }
 
-export default NavBar
+export default Header

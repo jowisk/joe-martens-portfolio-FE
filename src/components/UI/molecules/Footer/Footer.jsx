@@ -1,6 +1,6 @@
 import React from 'react'
-import IconsList from '../NavBar/IconsList'
-import CurvesFooter from '../../organisms/design/Curves'
+import IconsList from '../Header/IconsList'
+import CurvesFooter from '../../organisms/design/CurvesFooter'
 const Footer = ({ name, socials }) => {
     return (
         <div className="bg-gradient-to-t from-transparent to-[#4EE1A0] pt-[39px] lg:pt-[47px] pb-[60px] lg:pb-[92px] flex flex-col items-center lg:flex-row w-full justify-between z-[2]  absolute left-0 px-[165px]">

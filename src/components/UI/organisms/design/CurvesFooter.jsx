@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Curves = ({ color, curve }) => {
+const CurvesFooter = ({ color, curve }) => {
 
     console.log(`fill-[${color}]`)
 
@@ -16,4 +16,4 @@ const Curves = ({ color, curve }) => {
     )
 }
 
-export default Curves
+export default CurvesFooter

@@ -1,23 +1,15 @@
 import React from 'react'
-import NavBar from '../../molecules/NavBar/NavBar'
 import SummaryBody from '../../molecules/SummaryBody/SummaryBody'
-import StackList from '../../molecules/Stack/StackList'
-import CurvesNav from '../design/CurvesNav'
-const Summary = ({ jowi, techStack }) => {
+
+const Summary = ({ jowi }) => {
     return (
         <>
-            <div className="w-full h-[850px] pt-[180px] z-[0] flex-col border-b-[1px] border-white relative">
-
+            <div className="px-[16px] md:px-[165px] w-full h-[900px] pt-[180px] z-[0] flex-col  relative bg-[#242424]">
                 <SummaryBody
                     jowi={jowi}
                 />
 
             </div>
-
-            <StackList
-                techStack={techStack}
-            />
-
 
         </>
     )
