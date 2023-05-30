@@ -14,7 +14,7 @@ const Project = ({ name, technologies, src, deploy, git }) => {
     return (
         <div className="mt-[40px] lg:mt-0 flex flex-col w-full h-[398px] lg:w-[540px] lg:h-[487px] relative" onMouseEnter={handleVisibility} onMouseLeave={handleVisibility}>
 
-            <motion.div animate={{ scaleX: isVisible ? 1 : 0 }} initial={{ scaleX: 0, rotate: 90 }} className="hidden lg:flex justify-between absolute z-[3] right-[307px] top-[167px] bg-[#242424] w-[400px] rotate-90 uppercase text-[20px] p-[20px] leading-[26px] tracking-[2.29px] font-[700]">
+            <motion.div animate={{ scaleX: isVisible ? 1 : 0 }} initial={{ scaleX: 0, rotate: 90 }} className="hidden lg:flex justify-between absolute z-[3] right-[307px] top-[166px] bg-[#242424] w-[400px] rotate-90 uppercase text-[20px] p-[20px] leading-[26px] tracking-[2.29px] font-[700] border-t-[2px] border-[#4EE1A0]">
                 {isDeployed ? <a href={deploy}><p className="hover-underline-animation hover:text-[#4EE1A0] transition duration-300 hover:ease-in">view project</p></a> : <p className="text-[16px]">Not deployed yet :(</p>}
                 <a href={git}><p className="hover-underline-animation hover:text-[#4EE1A0] transition duration-300 hover:ease-in">view code</p></a>
             </motion.div>

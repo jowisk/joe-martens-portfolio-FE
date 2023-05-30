@@ -1,11 +1,17 @@
 import { React } from 'react'
 import './App.css'
-import Header from './components/UI/molecules/Header/Header'
-import Summary from './components/UI/organisms/Summary/Summary'
-import StackList from './components/UI/molecules/Stack/StackList'
-import ProjectList from './components/UI/organisms/ProjectList/ProjectList'
-import Contact from './components/UI/organisms/Contact/Contact'
-import Footer from './components/UI/molecules/Footer/Footer'
+import {
+  Header,
+  Summary,
+  StackList,
+  ProjectList,
+  Contact,
+  Footer,
+  CurvesHeader,
+  CurvesStack,
+  CurvesContact,
+  CurvesFooter
+} from './index'
 
 import pokedexSS from './components/assets/images/pokedex-cap.jpg'
 import resultsSummarySS from './components/assets/images/results-summary-cap.jpg'
@@ -13,10 +19,6 @@ import iconGithub from './components/assets/images/icon-github.svg'
 import iconLinkedin from './components/assets/images/icon-linkedin.svg'
 import iconFrontendMentor from './components/assets/images/icon-frontend-mentor.svg'
 import jowi from './components/assets/images/joe-2p.png'
-import CurvesNav from './components/UI/organisms/design/CurvesNav'
-import CurvesStack from './components/UI/organisms/design/CurvesStack'
-import CurvesFooter from './components/UI/organisms/design/CurvesFooter'
-import CurvesContact from './components/UI/organisms/design/CurvesContact'
 
 function App() {
 
@@ -88,7 +90,7 @@ function App() {
         socials={socials}
       />
 
-      <CurvesNav />
+      <CurvesHeader />
 
       <main>
 

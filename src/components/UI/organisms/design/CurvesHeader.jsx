@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CurvesNav = () => {
+const CurvesHeader = () => {
     return (
         <div className="absolute w-full left-0 top-[150px] z-[2]">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full lg:h-[100px]">
@@ -12,4 +12,4 @@ const CurvesNav = () => {
     )
 }
 
-export default CurvesNav
+export default CurvesHeader
