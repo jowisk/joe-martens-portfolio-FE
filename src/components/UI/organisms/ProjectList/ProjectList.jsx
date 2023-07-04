@@ -9,7 +9,7 @@ const ProjectList = ({ isEditing, setIsEditing, token }) => {
 
     const getProjectsList = async () => {
         setLoading(true)
-        const res = await fetch('http://localhost:5000/projects/get')
+        const res = await fetch('https://portfolio-api-35q5.onrender.com/projects/get')
         const data = await res.json()
         setProjects(data)
         setLoading(false)
