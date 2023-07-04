@@ -5,7 +5,9 @@ import { deleteProject } from '../../../../API'
 import { storage } from '../../../../API/firebase'
 import { ref } from 'firebase/storage'
 
-const Project = ({ uuid, name, technologies, img, deploy, git, isEditing, preview, token }) => {
+const Project = ({ uuid, name, technologies, img, deploy, git, isEditing, preview }) => {
+
+    const authToken = localStorage.getItem('auth-token')
 
     const [isVisible, setIsVisible] = useState(false)
     const [isDeployed, setIsDeployed] = useState(deploy.length != 0)
@@ -20,7 +22,7 @@ const Project = ({ uuid, name, technologies, img, deploy, git, isEditing, previe
     }
 
     const deleteProjectHandler = () => {
-        deleteProject(nameRef.current.innerHTML, imgRef, token)
+        deleteProject(nameRef.current.innerHTML, imgRef, authToken)
     }
 
     return (

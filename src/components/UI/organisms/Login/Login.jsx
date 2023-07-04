@@ -24,7 +24,7 @@ const Login = ({ setToken }) => {
             if (res == 'Invalid credentials') {
                 alert('wrong user or password')
             } else {
-                localStorage.setItem(res.token)
+                localStorage.setItem('auth-token', res.token)
                 navigate('/')
             }
         } catch {

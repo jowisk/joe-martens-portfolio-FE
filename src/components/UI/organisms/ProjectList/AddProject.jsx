@@ -6,9 +6,10 @@ import { storage } from '../../../../API/firebase'
 import Project from '../../molecules/ProjectList/Project'
 import cross from '../../../assets/images/x-icon.svg'
 
-const  AddProject = ({ editHandler, token }) => {
+const AddProject = ({ editHandler }) => {
 
-    console.log(localStorage.getItem(token))
+    const authToken = localStorage.getItem('auth-token')
+
     const [uniqueId, setUniqueId] = useState('')
     const [name, setName] = useState('')
     const [technologies, setTechnologies] = useState([])
@@ -63,12 +64,11 @@ const  AddProject = ({ editHandler, token }) => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        addProject(uniqueId, name, technologies, await uploadImage(), deploy, git, token)
+        addProject(uniqueId, name, technologies, await uploadImage(), deploy, git, authToken)
         editHandler()
     }    
 
     useEffect(() => {
-        console.log(token)
         setUniqueId(v4())
         setIsValidUniqueId(uniqueId != null && uniqueId.length != 0)
     }, [])
