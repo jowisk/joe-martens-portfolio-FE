@@ -8,6 +8,7 @@ import cross from '../../../assets/images/x-icon.svg'
 
 const  AddProject = ({ editHandler, token }) => {
 
+    console.log(localStorage.getItem(token))
     const [uniqueId, setUniqueId] = useState('')
     const [name, setName] = useState('')
     const [technologies, setTechnologies] = useState([])
