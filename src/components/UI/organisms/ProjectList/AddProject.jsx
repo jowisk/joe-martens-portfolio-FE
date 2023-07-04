@@ -67,6 +67,7 @@ const  AddProject = ({ editHandler, token }) => {
     }    
 
     useEffect(() => {
+        console.log(token)
         setUniqueId(v4())
         setIsValidUniqueId(uniqueId != null && uniqueId.length != 0)
     }, [])
