@@ -18,7 +18,7 @@ import iconLinkedin from '../components/assets/images/icon-linkedin.svg'
 import iconFrontendMentor from '../components/assets/images/icon-frontend-mentor.svg'
 import jowi from '../components/assets/images/joe-2p.png'
 
-const MainPage = ({ token }) => {
+const MainPage = () => {
 
   const [isEditing, setIsEditing] = useState(false)
 
@@ -90,7 +90,6 @@ const MainPage = ({ token }) => {
         <ProjectList
           isEditing={isEditing}
           setIsEditing={setIsEditing}
-          token={token}
         />
         <CurvesContact />
 

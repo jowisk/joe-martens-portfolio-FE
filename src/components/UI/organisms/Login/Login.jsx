@@ -2,11 +2,14 @@ import { React, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../../../API'
 import { Header, CurvesHeader, CurvesFooter, Footer } from '../../../../index'
-
-const Login = ({ setToken }) => {
+import eyeClose from '../../../assets/images/eye-close.png'
+import eyeOpen from '../../../assets/images/eye-open.png'
+const Login = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [type, setType] = useState('password')
+    const [src, setSrc] = useState(eyeClose)
 
     const navigate = useNavigate()
 
@@ -17,6 +20,16 @@ const Login = ({ setToken }) => {
         setPassword(e.target.value)
     }
 
+    const onClickTypeHandler = (e) => {
+        if (type === 'password') {
+            setType('text')
+            setSrc(eyeOpen)
+        } else if (type === 'text') {
+            setType('password')
+            setSrc(eyeClose)
+        }
+    }
+
     const submitHandler = async (e) => {
         e.preventDefault()
         try {
@@ -24,8 +37,7 @@ const Login = ({ setToken }) => {
             if (res == 'Invalid credentials') {
                 alert('wrong user or password')
             } else {
-                console.log(res.token)
-                await localStorage.setItem('auth-token', res.token)
+                localStorage.setItem('auth-token', res.token)
                 navigate('/')
             }
         } catch {
@@ -34,22 +46,27 @@ const Login = ({ setToken }) => {
     }
 
     return (
-        <>
+        <div className='h-full relative'>
             <Header
                 name="jowisk"
             />
 
             <CurvesHeader />
 
-            <div className='p-[250px] h-full'>
+            <div className='p-[251.5px] h-full flex items-center justify-center'>
                 <form onSubmit={submitHandler}>
                     <div className='flex flex-col'>
                         <label htmlFor="">Username</label>
-                        <input onChange={onChangeUserHandler} className="lowercase outline-0 w-[47%] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type="text" placeholder="" /> 
+                        <input onChange={onChangeUserHandler} className="lowercase outline-0 w-[430px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type="text" placeholder="" /> 
                     </div>
                     <div className='flex flex-col'>
                         <label htmlFor="">Password</label>
-                        <input onChange={onChangePasswordHandler} className="outline-0 w-[47%] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type="text" placeholder="" /> 
+                        <div className='flex'>
+                            <input onChange={onChangePasswordHandler} className="outline-0 w-[380px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type={type} placeholder=""></input>
+                            <div className='w-[50px] bg-[#242424] flex items-center justify-center h-[57px] border-b-[1px] border-white'>
+                                <img onClick={onClickTypeHandler} src={src} className='h-[30px] w-[30px]'alt="" />
+                            </div>
+                        </div>
                     </div>
 
                     <button className="leading-[26px] tracking-[2.29px] font-[700] text-[40px] mt-[32px] hover:text-red-500 transition duration-300 hover:ease-in shake" type="submit">Log in</button>
@@ -63,7 +80,7 @@ const Login = ({ setToken }) => {
                     name="jowisk"
                 />
             </div>
-        </>
+        </div>
     )
 }
 

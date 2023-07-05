@@ -1,11 +1,9 @@
 import React from 'react'
 import Login from '../components/UI/organisms/Login/Login'
 
-const LoginPage = ({ setToken }) => {
+const LoginPage = () => {
   return (
-    <Login
-      setToken={setToken}
-    />
+    <Login className/>
   )
 }
 

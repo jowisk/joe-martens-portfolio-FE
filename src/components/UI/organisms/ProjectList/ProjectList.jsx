@@ -2,7 +2,7 @@ import { React, useEffect, useState } from 'react'
 import Project from '../../molecules/ProjectList/Project'
 import AddProject from './AddProject'
 
-const ProjectList = ({ isEditing, setIsEditing, token }) => {
+const ProjectList = ({ isEditing, setIsEditing }) => {
 
     const [projects, setProjects] = useState()
     const [loading, setLoading] = useState()
@@ -36,7 +36,6 @@ const ProjectList = ({ isEditing, setIsEditing, token }) => {
                             editHandler={editHandler} 
                             setIsEditing={setIsEditing}
                             projects={projects}
-                            token={token}
                         />
                 }
                 
@@ -61,10 +60,9 @@ const ProjectList = ({ isEditing, setIsEditing, token }) => {
                             deploy={project.deploy}
                             git={project.git}
                             img={project.img}
-                            token={token}
                         />
                     ))}
-                </div> : <p className="w-full text-center text-[50px]">Nothing to see here... yet</p>}
+                </div> : <p className="w-full text-center text-[50px] mt-[40px]">Nothing to see here... yet</p>}
             </article>
         </>
     )

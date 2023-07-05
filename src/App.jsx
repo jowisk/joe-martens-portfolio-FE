@@ -6,14 +6,12 @@ import LoginPage from './Pages/LoginPage'
 
 function App() {
 
-  const [token, setToken] = useState('')
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<MainPage token={token}/>}/>
+        <Route path='/' element={<MainPage/>}/>
 
-        <Route path='/login' element={<LoginPage setToken={setToken}/>}/>
+        <Route path='/login' element={<LoginPage/>}/>
       </Routes>
     </BrowserRouter>
 

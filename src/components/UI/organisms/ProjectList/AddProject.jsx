@@ -64,6 +64,7 @@ const AddProject = ({ editHandler }) => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
+        if (!authToken) return
         addProject(uniqueId, name, technologies, await uploadImage(), deploy, git, authToken)
         editHandler()
     }    
@@ -75,7 +76,7 @@ const AddProject = ({ editHandler }) => {
 
     return (
         <div className="pb-[140px] hidden lg:flex  flex-col justify-center">
-            <p>{uniqueId}</p>
+            {authToken ? 
             <form onSubmit={submitHandler} className="flex flex-col">
                 <div className="flex flex-wrap justify-between">
                     <input onChange={onChangeNameHandler} className="outline-0 w-[47%] pl-[24px] py-[16px] mt-[16px] border-b-[1px] border-white bg-[#242424]" type="text" placeholder="PROJECT NAME" /> 
@@ -103,7 +104,7 @@ const AddProject = ({ editHandler }) => {
                 </div>
 
                 <button className="leading-[26px] tracking-[2.29px] font-[700] text-[40px] mt-[32px] hover:text-red-500 transition duration-300 hover:ease-in shake" type="submit">UPLOAD</button>
-            </form>
+            </form> : <p className="text-center text-[50px] mt-[50px] text-red-500">Unauthorized</p> }
         </div>
     )
 }
