@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import { login } from '../../../../API'
 import { Header, CurvesHeader, CurvesFooter, Footer } from '../../../../index'
 
-import Eye from '../../atoms/eye'
+import Eye from '../../atoms/Eye'
+
 const Login = () => {
 
     const [username, setUsername] = useState('')
