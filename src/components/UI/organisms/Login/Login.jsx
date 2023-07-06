@@ -11,6 +11,8 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [type, setType] = useState('password')
     const [isVisible, setIsVisible] = useState(false)
+    const [isValidUser, setIsValidUser] = useState()
+    const [isValidPassword, setIsValidPassword] = useState()
 
     const navigate = useNavigate()
 
@@ -35,9 +37,13 @@ const Login = () => {
         e.preventDefault()
         try {
             let res = await login(username, password)
-            if (res == 'Invalid credentials') {
-                alert('wrong user or password')
+            if (res == 'Invalid user') {
+                setIsValidUser(false)
+            } else if (res == 'Invalid password') {
+                setIsValidPassword(false)
             } else {
+                setIsValidUser(true)
+                setIsValidPassword(true)
                 localStorage.setItem('auth-token', res.token)
                 navigate('/')
             }
