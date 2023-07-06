@@ -11,8 +11,8 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [type, setType] = useState('password')
     const [isVisible, setIsVisible] = useState(false)
-    const [isValidUser, setIsValidUser] = useState()
-    const [isValidPassword, setIsValidPassword] = useState()
+    const [isValidUser, setIsValidUser] = useState(true)
+    const [isValidPassword, setIsValidPassword] = useState(true)
 
     const navigate = useNavigate()
 
@@ -37,9 +37,9 @@ const Login = () => {
         e.preventDefault()
         try {
             let res = await login(username, password)
-            if (res == 'Invalid user') {
+            if (res === 'Invalid user') {
                 setIsValidUser(false)
-            } else if (res == 'Invalid password') {
+            } else if (res === 'Invalid password') {
                 setIsValidPassword(false)
             } else {
                 setIsValidUser(true)
