@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../App.css'
 import {
   Header,
@@ -20,6 +21,8 @@ import jowi from '../components/assets/images/joe-2p.png'
 
 const MainPage = () => {
 
+  const navigate = useNavigate
+
   const [isEditing, setIsEditing] = useState(false)
 
   const socials = [
@@ -34,7 +37,7 @@ const MainPage = () => {
     {
       icon: iconFrontendMentor,
       url: "https://www.frontendmentor.io/profile/jowisk"
-    }
+    },
   ]
 
   const techStack = [
@@ -69,6 +72,7 @@ const MainPage = () => {
       <Header
         name="jowisk"
         socials={socials}
+        login={true}
       />
 
       <CurvesHeader />

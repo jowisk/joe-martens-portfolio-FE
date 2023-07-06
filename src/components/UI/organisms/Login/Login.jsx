@@ -2,14 +2,14 @@ import { React, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../../../API'
 import { Header, CurvesHeader, CurvesFooter, Footer } from '../../../../index'
-import eyeClose from '../../../assets/images/eye-close.png'
-import eyeOpen from '../../../assets/images/eye-open.png'
+
+import Eye from '../../atoms/eye'
 const Login = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [type, setType] = useState('password')
-    const [src, setSrc] = useState(eyeClose)
+    const [isVisible, setIsVisible] = useState(false)
 
     const navigate = useNavigate()
 
@@ -23,10 +23,10 @@ const Login = () => {
     const onClickTypeHandler = (e) => {
         if (type === 'password') {
             setType('text')
-            setSrc(eyeOpen)
+            setIsVisible(false)
         } else if (type === 'text') {
             setType('password')
-            setSrc(eyeClose)
+            setIsVisible(true)
         }
     }
 
@@ -63,8 +63,11 @@ const Login = () => {
                         <label htmlFor="">Password</label>
                         <div className='flex'>
                             <input onChange={onChangePasswordHandler} className="outline-0 w-[380px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type={type} placeholder=""></input>
-                            <div className='w-[50px] bg-[#242424] flex items-center justify-center h-[57px] border-b-[1px] border-white'>
-                                <img onClick={onClickTypeHandler} src={src} className='h-[30px] w-[30px]'alt="" />
+                            <div className='w-[50px] bg-[#242424] flex items-center justify-center h-[57px] border-b-[1px] border-white relative'>
+                                <Eye
+                                    onClickTypeHandler={onClickTypeHandler}
+                                    isVisible={isVisible}
+                                />
                             </div>
                         </div>
                     </div>
