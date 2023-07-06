@@ -16,7 +16,7 @@ const Header = ({ name, socials, login }) => {
                 /> : null}
             </div>
 
-            {login ? <img src={iconLogin} onClick={() => navigate('/login')}/> : null}
+            {login ? <img className='cursor-pointer' src={iconLogin} onClick={() => navigate('/login')}/> : null}
             
         </header>
     )
