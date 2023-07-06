@@ -40,6 +40,7 @@ const Login = () => {
             if (res === 'Invalid user') {
                 setIsValidUser(false)
             } else if (res === 'Invalid password') {
+                setIsValidUser(true)
                 setIsValidPassword(false)
             } else {
                 setIsValidUser(true)
