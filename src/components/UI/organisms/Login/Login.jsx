@@ -64,12 +64,12 @@ const Login = () => {
                 <form onSubmit={submitHandler}>
                     <div className='flex flex-col'>
                         <label htmlFor="">Username</label>
-                        <input onChange={onChangeUserHandler} className="lowercase outline-0 w-[430px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type="text" placeholder="" /> 
+                        {isValidUser ? <input onChange={onChangeUserHandler} className="lowercase outline-0 w-[430px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type="text" placeholder="" /> :  <input onChange={onChangeUserHandler} className="lowercase outline-0 w-[430px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-red-500 bg-[#242424]" type="text" placeholder="" />}
                     </div>
                     <div className='flex flex-col'>
                         <label htmlFor="">Password</label>
                         <div className='flex'>
-                            <input onChange={onChangePasswordHandler} className="outline-0 w-[380px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type={type} placeholder=""></input>
+                            {isValidPassword ? <input onChange={onChangePasswordHandler} className="outline-0 w-[380px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type={type} placeholder=""></input> : <input onChange={onChangePasswordHandler} className="outline-0 w-[380px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-red-500 bg-[#242424]" type={type} placeholder=""></input>}
                             <div className='w-[50px] bg-[#242424] flex items-center justify-center h-[57px] border-b-[1px] border-white relative'>
                                 <Eye
                                     onClickTypeHandler={onClickTypeHandler}
