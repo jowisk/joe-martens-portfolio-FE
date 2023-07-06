@@ -64,7 +64,7 @@ const AddProject = ({ editHandler }) => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        if (!authToken) return
+        // if (!authToken) return
         addProject(uniqueId, name, technologies, await uploadImage(), deploy, git, authToken)
         editHandler()
     }    

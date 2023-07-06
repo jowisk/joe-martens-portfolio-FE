@@ -4,15 +4,12 @@ import { login } from '../../../../API'
 import { Header, CurvesHeader, CurvesFooter, Footer } from '../../../../index'
 
 import Eye from '../../atoms/Eye'
-
 const Login = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [type, setType] = useState('password')
     const [isVisible, setIsVisible] = useState(false)
-    const [isValidUser, setIsValidUser] = useState(true)
-    const [isValidPassword, setIsValidPassword] = useState(true)
 
     const navigate = useNavigate()
 
@@ -37,14 +34,9 @@ const Login = () => {
         e.preventDefault()
         try {
             let res = await login(username, password)
-            if (res === 'Invalid user') {
-                setIsValidUser(false)
-            } else if (res === 'Invalid password') {
-                setIsValidUser(true)
-                setIsValidPassword(false)
+            if (res == 'Invalid credentials') {
+                alert('wrong user or password')
             } else {
-                setIsValidUser(true)
-                setIsValidPassword(true)
                 localStorage.setItem('auth-token', res.token)
                 navigate('/')
             }
@@ -65,12 +57,12 @@ const Login = () => {
                 <form onSubmit={submitHandler}>
                     <div className='flex flex-col'>
                         <label htmlFor="">Username</label>
-                        {isValidUser ? <input onChange={onChangeUserHandler} className="lowercase outline-0 w-[430px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type="text" placeholder="" /> :  <input onChange={onChangeUserHandler} className="lowercase outline-0 w-[430px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-red-500 bg-[#242424]" type="text" placeholder="" />}
+                        <input onChange={onChangeUserHandler} className="lowercase outline-0 w-[430px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type="text" placeholder="" /> 
                     </div>
                     <div className='flex flex-col'>
                         <label htmlFor="">Password</label>
                         <div className='flex'>
-                            {isValidPassword ? <input onChange={onChangePasswordHandler} className="outline-0 w-[380px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type={type} placeholder=""></input> : <input onChange={onChangePasswordHandler} className="outline-0 w-[380px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-red-500 bg-[#242424]" type={type} placeholder=""></input>}
+                            <input onChange={onChangePasswordHandler} className="outline-0 w-[380px] pl-[24px] py-[16px] mb-[16px] border-b-[1px] border-white bg-[#242424]" type={type} placeholder=""></input>
                             <div className='w-[50px] bg-[#242424] flex items-center justify-center h-[57px] border-b-[1px] border-white relative'>
                                 <Eye
                                     onClickTypeHandler={onClickTypeHandler}
