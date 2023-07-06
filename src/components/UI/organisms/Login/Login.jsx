@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../../../API'
 import { Header, CurvesHeader, CurvesFooter, Footer } from '../../../../index'
@@ -23,10 +23,10 @@ const Login = () => {
     const onClickTypeHandler = (e) => {
         if (type === 'password') {
             setType('text')
-            setIsVisible(false)
+            setIsVisible(true)
         } else if (type === 'text') {
             setType('password')
-            setIsVisible(true)
+            setIsVisible(false)
         }
     }
 
@@ -40,10 +40,14 @@ const Login = () => {
                 localStorage.setItem('auth-token', res.token)
                 navigate('/')
             }
-        } catch {
-            
+        } catch (error) {
+            alert(error)
         }
     }
+
+    useEffect(() => {
+        setIsVisible(false)
+    }, [])
 
     return (
         <div className='h-full relative'>
