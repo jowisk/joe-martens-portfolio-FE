@@ -3,7 +3,7 @@ import Tech from './Tech'
 
 const StackList = ({ techStack }) => {
     return (
-        <article className="relative px-[16px] md:px-[165px] lg:pb-0  w-full lg:h-[327px] mt-[20px] lg:mt-[100px] flex-col lg:flex-row flex lg:flex-wrap items-center lg:items-start justify-between">
+        <article className="relative px-[16px] flex-nowrap min-[834px]:flex-row min-[670px]:flex-wrap md:px-[165px] lg:pb-0  w-full lg:h-[327px] mt-[20px] lg:mt-[100px] flex-col md:flex-row flex lg:flex-wrap items-center lg:items-start justify-between">
             {techStack.map((tech, index) => (
                 <Tech
                     key={index}

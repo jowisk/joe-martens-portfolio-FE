@@ -2,6 +2,8 @@ import { React, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../../../../API'
 import { Header, CurvesHeader, CurvesFooter, Footer } from '../../../../index'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../../../../API/firebase'
 
 import Eye from '../../atoms/Eye'
 const Login = () => {
@@ -32,16 +34,14 @@ const Login = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault()
-        try {
-            let res = await login(username, password)
-            if (res == 'Invalid credentials') {
-                alert('wrong user or password')
-            } else {
-                localStorage.setItem('auth-token', res.token)
-                navigate('/')
-            }
-        } catch (error) {
-            alert(error)
+        const email = e.target[0].value
+        const password = e.target[1].value
+    
+        try{
+          await signInWithEmailAndPassword(auth, email, password)
+          navigate('/')
+        } catch (err) {
+          setErr(true)
         }
     }
 

@@ -1,5 +1,7 @@
-import { React, useState } from 'react'
+import { React, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { signOut } from 'firebase/auth'
+import { auth } from '../API/firebase'
 import '../App.css'
 import {
   Header,
@@ -18,12 +20,14 @@ import iconGithub from '../components/assets/images/icon-github.svg'
 import iconLinkedin from '../components/assets/images/icon-linkedin.svg'
 import iconFrontendMentor from '../components/assets/images/icon-frontend-mentor.svg'
 import jowi from '../components/assets/images/joe-2p.png'
+import { AuthContext } from '../context/AuthContext'
 
 const MainPage = () => {
 
   const navigate = useNavigate
 
   const [isEditing, setIsEditing] = useState(false)
+  const {isAuthenticated} = useContext(AuthContext)
 
   const socials = [
     {
@@ -69,6 +73,7 @@ const MainPage = () => {
 
   return (
     <>
+      
       <Header
         name="jowisk"
         socials={socials}
@@ -77,8 +82,8 @@ const MainPage = () => {
 
       <CurvesHeader />
 
-      <main>
-
+      <main className='relative'>
+        {isAuthenticated && <p className='hidden lg:flex right-0 z-10 fixed bg-red-500 uppercase w-[100px] justify-center cursor-pointer' onClick={()=>signOut(auth)}>logout</p>}
         <Summary
           socials={socials}
           jowi={jowi}

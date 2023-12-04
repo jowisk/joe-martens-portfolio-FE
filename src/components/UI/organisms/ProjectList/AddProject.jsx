@@ -1,20 +1,23 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState, useEffect, useContext } from 'react'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { doc, setDoc } from 'firebase/firestore'
 import { v4 } from 'uuid'
-import { addProject } from '../../../../API'
-import { storage } from '../../../../API/firebase'
+import { db, storage } from '../../../../API/firebase'
 import Project from '../../molecules/ProjectList/Project'
 import cross from '../../../assets/images/x-icon.svg'
+import { AuthContext } from '../../../../context/AuthContext'
 
-const AddProject = ({ editHandler }) => {
+const AddProject = ({ editHandler, setProjects, projects }) => {
 
-    const authToken = localStorage.getItem('auth-token')
+    
 
     const [uniqueId, setUniqueId] = useState('')
     const [name, setName] = useState('')
     const [technologies, setTechnologies] = useState([])
     const [deploy, setDeploy] = useState('')
     const [git, setGit] = useState('')
+
+    const [err, setErr] = useState(false)
     
     const [isValidUniqueId, setIsValidUniqueId] = useState(false)
     const [isValidName, setIsValidName] = useState(false)
@@ -51,10 +54,6 @@ const AddProject = ({ editHandler }) => {
         setIsValidGit(e.target.value != null && e.target.value.length != 0)
     }
 
-    const verifyStates = () => {
-        return (isValidUniqueId && isValidName && areValidTechnologies && isValidDeploy && isValidGit && isValidImg)
-    }
-
     const uploadImage = async () => {
         const srcRef = ref(storage, `images/${uniqueId}`)
         const snapshot = await uploadBytes(srcRef, src)
@@ -64,9 +63,20 @@ const AddProject = ({ editHandler }) => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        // if (!authToken) return
-        addProject(uniqueId, name, technologies, await uploadImage(), deploy, git, authToken)
-        editHandler()
+
+        try{
+            const newProj = {
+                uid: uniqueId,
+                projectName: name,
+                technologies: technologies,
+                img: await uploadImage(),
+                deploy: deploy,
+                git: git,
+            }
+            await setDoc(doc(db, 'projects', name), newProj)
+        }catch(e){
+            setErr(true)
+        }
     }    
 
     useEffect(() => {
@@ -75,8 +85,8 @@ const AddProject = ({ editHandler }) => {
     }, [])
 
     return (
-        <div className="pb-[140px] hidden lg:flex  flex-col justify-center">
-            {authToken ? 
+        <div className="pb-[140px] hidden lg:flex flex-col justify-center">
+
             <form onSubmit={submitHandler} className="flex flex-col">
                 <div className="flex flex-wrap justify-between">
                     <input onChange={onChangeNameHandler} className="outline-0 w-[47%] pl-[24px] py-[16px] mt-[16px] border-b-[1px] border-white bg-[#242424]" type="text" placeholder="PROJECT NAME" /> 
@@ -90,9 +100,9 @@ const AddProject = ({ editHandler }) => {
                 
                 </div>
 
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center w-full">
                     <p className="text-center hidden lg:flex h-[2rem] uppercase text-[25px] leading-[26px] font-[700] tracking-[2.29px] hover:text-[#4EE1A0] transition duration-300 hover:ease-in my-[50px]">↓ project preview ↓</p>
-
+                    {err && <div>something went wrong</div>}
                     {<Project
                         name={name}
                         technologies={technologies}
@@ -104,7 +114,8 @@ const AddProject = ({ editHandler }) => {
                 </div>
 
                 <button className="leading-[26px] tracking-[2.29px] font-[700] text-[40px] mt-[32px] hover:text-red-500 transition duration-300 hover:ease-in shake" type="submit">UPLOAD</button>
-            </form> : <p className="text-center text-[50px] mt-[50px] text-red-500">Unauthorized</p> }
+
+            </form>
         </div>
     )
 }

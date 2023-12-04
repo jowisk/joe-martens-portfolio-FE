@@ -1,4 +1,5 @@
-import { React, useState } from 'react'
+import { React, useState, useRef } from 'react'
+import emailjs from '@emailjs/browser';
 import { sendEmail } from '../../../../API/index'
 import ResponseRecorded from './ResponseRecorded'
 const Contact = () => {
@@ -28,15 +29,19 @@ const Contact = () => {
         setIsValidMessage(e.target.value.length !== 0)
     }
 
+    const form = useRef();
 
     const submitHandler = (e) => {
         e.preventDefault();
-        sendEmail(email, subject, message)
-        setEmail('')
-        setMessage('')
-        setSubject('')
+
+        emailjs.sendForm('service_7rnu7wr', 'template_rqtyx8o', form.current, 'C9aQsEzCEDqsb8clF')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
         setFormVisibility(false)
-    }
+    };
 
 
     return (
@@ -47,13 +52,13 @@ const Contact = () => {
                     <p className="text-center mt-[20px] lg:text-start leading-[26px] lg:w-[445px] lg:mt-[36px] lg:text-[18px] lg:leading-[28px] text-[#D9D9D9]">I would love to hear about your project and how I could help. Please fill in the form, and I'll get back to you as soon as possible.</p>
                 </div>
 
-                <form onSubmit={submitHandler} method="post" className="mt-[50px] mb-[20px] lg:mb-0 lg:mt-0 flex flex-col lg:w-[637px] lg:h-[366px] tracking-[-0.22px] items-end">
+                <form ref={form} onSubmit={submitHandler} className="mt-[50px] mb-[20px] lg:mb-0 lg:mt-0 flex flex-col lg:w-[637px] lg:h-[366px] tracking-[-0.22px] items-end">
                     <input
                         name="email"
                         value={email}
+                        type="email"
                         onChange={changeEmailHandler}
                         className="outline-0 w-full pl-[24px] py-[16px] border-b-[1px] border-white bg-[#242424]"
-                        type="email"
                         placeholder="EMAIL"
                         required={true}
                     />
