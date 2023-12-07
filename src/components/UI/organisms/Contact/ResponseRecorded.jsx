@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ResponseRecorded = ({ formVisibility, test }) => {
+const    ResponseRecorded = ({ formVisibility, test }) => {
     return (
         <article className="bg-[#242424] px-[16] lg:px-[165px] items-center justify-center flex flex-col lg:flex-row pt-[-60px] lg:pt-[84px] lg:justify-between border-b-[1px] border-white lg:pb-[70px] lg:[px-0] min-h-[521px]" id="contact">
             <div className="w-1/2">

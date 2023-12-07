@@ -82,7 +82,7 @@ const MainPage = () => {
 
       <CurvesHeader />
 
-      <main className='relative'>
+      <main className=''>
         {isAuthenticated && <p className='hidden lg:flex right-0 z-10 fixed bg-red-500 uppercase w-[100px] justify-center cursor-pointer' onClick={()=>signOut(auth)}>logout</p>}
         <Summary
           socials={socials}

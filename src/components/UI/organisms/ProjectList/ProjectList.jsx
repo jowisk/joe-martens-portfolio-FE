@@ -7,28 +7,12 @@ import { db } from '../../../../API/firebase'
 
 const ProjectList = ({ isEditing, setIsEditing }) => {
 
-    console.log('render projectlist')
     const {isAuthenticated} = useContext(AuthContext)
 
     const [updateEffect, setUpdateEffect] = useState(true)
 
     const [projects, setProjects] = useState()
     const [loading, setLoading] = useState()
-
-
-    const getProjectsList = async () => {
-        setLoading(true)
-        setUpdateEffect(true)
-        onSnapshot(collection(db, 'projects'), (q) => {
-            q.forEach((proj) => {
-                responseArr.push(proj)
-            })
-        })
-        
-        setProjects(responseArr)
-        console.log(responseArr)
-        setLoading(false)
-    } 
 
     const editHandler = () => {
         setIsEditing(!isEditing)
