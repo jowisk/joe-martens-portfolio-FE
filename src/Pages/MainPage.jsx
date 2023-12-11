@@ -47,27 +47,39 @@ const MainPage = () => {
   const techStack = [
     {
       name: "React",
-      time: "1.5"
+      time: "2"
     },
     {
       name: "HTML",
-      time: "2.5"
+      time: "3"
     },
     {
-      name: "Testing",
+      name: "Typescript",
+      time: "0.5"
+    },
+    {
+      name: "Responsive design",
       time: "3"
     },
     {
       name: "Node.js",
+      time: "1.5"
+    },
+    {
+      name: "Firebase",
+      time: "0.5"
+    },
+    {
+      name: "Tailwind",
+      time: "1.5"
+    },
+    {
+      name: "Git",
       time: "1"
     },
     {
       name: "Accessibility",
       time: "2"
-    },
-    {
-      name: "Tailwind",
-      time: "1.5"
     },
   ]
 
